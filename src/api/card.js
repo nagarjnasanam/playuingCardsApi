@@ -1,38 +1,47 @@
 import axios from "axios";
 
 export const newDeck = async()=>{
-     await axios.get('https://deckofcardsapi.com/api/deck/new/').then(res=>console.log(res.data))
+   const data=  await axios.get('https://deckofcardsapi.com/api/deck/new/')
+   return data
     
 }
 
 export const shuffleAndCreateNewDeck = async(deckCount)=>{
-     await axios.get(` https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${deckCount}`).then(res=>console.log(res.data))
+     const data =await axios.get(` https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${deckCount}`)
+     return data
     
 }
 
 export const shuffleDeckCardswithDeckId = async(DeckId,deckCount)=>{
-    await axios.get(` https://deckofcardsapi.com/api/deck/${DeckId}/shuffle/?deck_count=${deckCount}`).then(res=>console.log(res.data))
-   
+   const data= await axios.get(` https://deckofcardsapi.com/api/deck/${DeckId}/shuffle/?deck_count=${deckCount}`)
+   return data
 }
 
 export const drawCardsFromDeck = async(DeckId,noOfCards)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/${DeckId}/draw/?count=${noOfCards}`).then(res=>console.log(res.data))
+    const data=await axios.get(`https://deckofcardsapi.com/api/deck/${DeckId}/draw/?count=${noOfCards}`)
+    return data
    
 }
 export const reshuffleCards = async(DeckId)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/${DeckId}/shuffle/`).then(res=>console.log(res.data))
+   const data= await axios.get(`https://deckofcardsapi.com/api/deck/${DeckId}/shuffle/`)
+     return data
    
 }
 export const reshuffleAvailableCards = async(DeckId)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/${DeckId}/shuffle/??remaining=true`).then(res=>console.log(res.data))
+  const data=  await axios.get(`https://deckofcardsapi.com/api/deck/${DeckId}/shuffle/??remaining=true`)
+  return data
+
    
 }
 export const customDeck = async(cardList)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=${cardList}`).then(res=>console.log(res.data))
+   const data= await axios.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=${cardList}`)
+   return data
+
    
 }
 export const createPileAddCards = async(deckId,pileName,cardList)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/pile/${pileName}/add/?cards=${cardList}`).then(res=>console.log(res.data))
+   const data= await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/pile/${pileName}/add/?cards=${cardList}`)
+   return data
    
 }
 export const shufflePile = async(deckId,pileName)=>{
