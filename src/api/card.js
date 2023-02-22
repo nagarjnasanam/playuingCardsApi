@@ -45,11 +45,13 @@ export const createPileAddCards = async(deckId,pileName,cardList)=>{
    
 }
 export const shufflePile = async(deckId,pileName)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/pile/${pileName}/shuffle/`).then(res=>console.log(res.data))
+    const data=await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/pile/${pileName}/shuffle/`)
+    return data
    
 }
 export const pileCardsList = async(deckId,pileName)=>{
-    await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/pile/${pileName}/list/`).then(res=>console.log(res.data))
+   const data = await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/pile/${pileName}/list/`)
+   return data
    
 }
 export const drawCardsFromPile = async(deckId,cardsList)=>{
